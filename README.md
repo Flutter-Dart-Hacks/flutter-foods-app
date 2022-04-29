@@ -1,6 +1,6 @@
-# food_delivery_app
+# Food Delivery App
 
-A new Flutter project.
+Latihan membuat aplikasi Flutter pemesanan makanan dari channel Flutter Way.
 
 ## Getting Started
 
