@@ -1,6 +1,6 @@
 # Food Delivery App
 
-Latihan membuat aplikasi Flutter pemesanan makanan dari channel Flutter Way.
+Latihan membuat aplikasi Flutter pemesanan makanan dari channel Flutter Way. Diperbarui dengan Flutter versi 2.x.
 
 ## Getting Started
 
