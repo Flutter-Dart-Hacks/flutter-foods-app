@@ -16,6 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Food Delivery App - Flutter UI
+
 ## [Watch it on YouTube](https://youtu.be/6hUSNDGkg1c)
 
 **Packages we are using:**
@@ -30,4 +31,5 @@ samples, guidance on mobile development, and a full API reference.
 We design two pages one is the items page and another one is details page that will help you to design clear interfaces for food delivery app faster and easier.
 
 ### Food App Final UI
+
 ![App UI](https://github.com/Flutter-Dart-Hacks/Food-App/raw/master/food_app.png)
