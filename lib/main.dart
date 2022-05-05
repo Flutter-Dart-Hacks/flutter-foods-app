@@ -103,6 +103,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 20,
+              ),
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: kBorderColor),
+              ),
+            )
           ],
         ),
       ),
