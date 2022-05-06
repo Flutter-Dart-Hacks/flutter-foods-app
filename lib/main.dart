@@ -53,68 +53,137 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 20, top: 20),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: SvgPicture.asset(
-                  'assets/icons/menu.svg',
-                  height: 11,
-                  fit: BoxFit.contain,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20, top: 20),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: SvgPicture.asset(
+                    'assets/icons/menu.svg',
+                    height: 11,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Text(
-                'Simple way to order \nTasty food',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  right: 10,
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  'Simple way to order \nTasty food',
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
-                child: Row(
-                  children: const <Widget>[
-                    CategoryTitle(
-                      title: 'Semua',
-                      isActive: true,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                  ),
+                  child: Row(
+                    children: const <Widget>[
+                      CategoryTitle(
+                        title: 'Semua',
+                        isActive: true,
+                      ),
+                      CategoryTitle(
+                        title: 'Ayam',
+                      ),
+                      CategoryTitle(
+                        title: 'Nasi',
+                      ),
+                      CategoryTitle(
+                        title: 'Minuman',
+                      ),
+                      CategoryTitle(
+                        title: 'Dessert',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 20,
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 15,
+                ),
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: kBorderColor),
+                ),
+                child: SvgPicture.asset('assets/icons/search.svg'),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 15),
+                height: 400,
+                width: 270,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: Container(
+                        height: 380,
+                        width: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(34),
+                          color: kPrimaryColor.withOpacity(0.1),
+                        ),
+                      ),
                     ),
-                    CategoryTitle(
-                      title: 'Ayam',
+                    // Rounded background
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        height: 181,
+                        width: 181,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: kPrimaryColor.withOpacity(0.15),
+                        ),
+                      ),
                     ),
-                    CategoryTitle(
-                      title: 'Nasi',
+                    // Food image
+                    Positioned(
+                      top: 0,
+                      left: -50,
+                      child: Container(
+                        height: 184,
+                        width: 276,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/image_1.png'),
+                          ),
+                        ),
+                      ),
                     ),
-                    CategoryTitle(
-                      title: 'Minuman',
-                    ),
-                    CategoryTitle(
-                      title: 'Dessert',
-                    ),
+                    // Price
+                    Positioned(
+                      right: 20,
+                      top: 60,
+                      child: Text(
+                        '\$20',
+                        style: Theme.of(context).textTheme.headline5?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor,
+                            ),
+                      ),
+                    )
                   ],
                 ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 20,
-              ),
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: kBorderColor),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
