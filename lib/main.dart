@@ -178,9 +178,78 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: kPrimaryColor,
                             ),
                       ),
+                    ),
+                    Positioned(
+                      top: 201,
+                      left: 40,
+                      child: SizedBox(
+                        width: 210,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Vegan salad bowl rice',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                            ),
+                            Text(
+                              'With tomato sauce and mustard',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                    color: kTextColor.withOpacity(0.4),
+                                  ),
+                              softWrap: true,
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
+                              maxLines: 3,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                    color: kTextColor.withOpacity(0.65),
+                                  ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 140),
+                              child: Text(
+                                '420 Kcal',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: kTextColor.withOpacity(0.65),
+                                    ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     )
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 24,
               )
             ],
           ),
