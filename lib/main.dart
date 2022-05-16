@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery_app/constants.dart';
+import 'package:food_delivery_app/widgets/category_title.dart';
+import 'package:food_delivery_app/widgets/food_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,6 +54,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        padding: const EdgeInsets.all(10),
+        height: 80,
+        width: 80,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle, color: kPrimaryColor.withOpacity(0.3)),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: kPrimaryColor,
+          ),
+          child: SvgPicture.asset('assets/icons/plus.svg'),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -122,128 +139,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: SvgPicture.asset('assets/icons/search.svg'),
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 15),
-                height: 400,
-                width: 270,
-                child: Stack(
-                  children: <Widget>[
-                    Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        height: 380,
-                        width: 250,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(34),
-                          color: kPrimaryColor.withOpacity(0.1),
-                        ),
-                      ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: const [
+                    SizedBox(
+                      width: 15,
                     ),
-                    // Rounded background
-                    Positioned(
-                      top: 10,
-                      left: 10,
-                      child: Container(
-                        height: 181,
-                        width: 181,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: kPrimaryColor.withOpacity(0.15),
-                        ),
-                      ),
+                    FoodCart(
+                      title: 'Vegan salad bowl',
+                      imageSrc: 'assets/images/image_1.png',
+                      price: 24,
+                      calories: '440Kcal',
+                      description:
+                          'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
+                      ingredients: 'Tomato and vegetables',
                     ),
-                    // Food image
-                    Positioned(
-                      top: 0,
-                      left: -50,
-                      child: Container(
-                        height: 184,
-                        width: 276,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/image_1.png'),
-                          ),
-                        ),
-                      ),
+                    FoodCart(
+                      title: 'Vegan salad bowl',
+                      imageSrc: 'assets/images/image_2.png',
+                      price: 21,
+                      calories: '410Kcal',
+                      description:
+                          'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
+                      ingredients: 'Tomato and vegetables',
                     ),
-                    // Price
-                    Positioned(
-                      right: 20,
-                      top: 60,
-                      child: Text(
-                        '\$20',
-                        style: Theme.of(context).textTheme.headline5?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor,
-                            ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 201,
-                      left: 40,
-                      child: SizedBox(
-                        width: 210,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Vegan salad bowl rice',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                            Text(
-                              'With tomato sauce and mustard',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: kTextColor.withOpacity(0.4),
-                                  ),
-                              softWrap: true,
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Text(
-                              'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
-                              maxLines: 3,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: kTextColor.withOpacity(0.65),
-                                  ),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 140),
-                              child: Text(
-                                '420 Kcal',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: kTextColor.withOpacity(0.65),
-                                    ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                    SizedBox(
+                      width: 15,
                     )
                   ],
                 ),
@@ -254,30 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CategoryTitle extends StatelessWidget {
-  final String title;
-  final bool isActive;
-
-  const CategoryTitle({
-    Key? key,
-    required this.title,
-    this.isActive = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 18),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.button?.copyWith(
-              color: isActive ? kPrimaryColor : kTextColor.withOpacity(0.4),
-            ),
       ),
     );
   }
