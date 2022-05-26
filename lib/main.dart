@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery_app/constants.dart';
+import 'package:food_delivery_app/detail_screen.dart';
 import 'package:food_delivery_app/widgets/category_title.dart';
 import 'package:food_delivery_app/widgets/food_card.dart';
 
@@ -142,8 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       width: 15,
                     ),
                     FoodCart(
@@ -154,6 +155,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       description:
                           'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
                       ingredients: 'Tomato and vegetables',
+                      pressCallback: (String value) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const DetailScreen();
+                            },
+                          ),
+                        );
+                      },
                     ),
                     FoodCart(
                       title: 'Vegan salad bowl',
@@ -163,8 +174,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       description:
                           'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
                       ingredients: 'Tomato and vegetables',
+                      pressCallback: (String value) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const DetailScreen();
+                            },
+                          ),
+                        );
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     )
                   ],
