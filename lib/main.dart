@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         scaffoldBackgroundColor: kWhiteColor,
         textTheme: const TextTheme(
+          bodyText1: TextStyle(color: kTextColor),
           bodyText2: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           button: TextStyle(
             fontWeight: FontWeight.bold,

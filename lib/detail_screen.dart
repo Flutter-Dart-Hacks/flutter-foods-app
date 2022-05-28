@@ -68,8 +68,25 @@ class _DetailScreenState extends State<DetailScreen> {
               Row(
                 children: <Widget>[
                   RichText(
-                    text: const TextSpan(
-                      children: [],
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Vegetable Salad Bowl\n',
+                          style:
+                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
+                                    color: kTextColor.withOpacity(0.8),
+                                  ),
+                        ),
+                        TextSpan(
+                          text: 'With red tomatoes',
+                          style: TextStyle(
+                            color: kTextColor.withOpacity(0.5),
+                            fontSize: 15,
+                          ),
+                        )
+                      ],
                     ),
                   )
                 ],
